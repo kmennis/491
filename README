@@ -1,0 +1,8 @@
+Kristen Ennis malware 491 project----instructions
+To make crawl.cpp crawl any directory you want simply use the make file.
+1. use 'make' to get the executable
+2. use 'make run1' for the default directory of windows/system32
+3. OR 'make run2 DIR{*PLACE DIRECTORY HERE*}' inorder to input custom directory
+example : make run2 DIR{C://Windows/System32/*}
+4. Results are in results.txt
+NOTE** When using custom directory, please have a /* at the end of any directory 

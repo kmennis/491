@@ -1,3 +1,10 @@
+/******************
+Kristen Ennis
+Malware CMSC 491
+Given a directory, this program will crawl each .ddl and .exe in
+the directory and find its entropy. Then, it will order those files
+from bigget to smallest entropy.
+******************/
 #include <iostream>
 #include <iomanip>
 #include <Windows.h>

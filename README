@@ -6,3 +6,4 @@ To make crawl.cpp crawl any directory you want simply use the make file.
 example : make run2 DIR{C://Windows/System32/*}
 4. Results are in results.txt
 NOTE** When using custom directory, please have a /* at the end of any directory 
+**If make commands do not work, edit the theDirectory variable on line 17 with desired directory in crawl.cpp**

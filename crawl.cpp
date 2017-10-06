@@ -32,9 +32,6 @@ int main( int argc, char *argv[], char *envp[]){
     double numExe =  0.0;
     double avgDll = 0.0;
     double avgExe = 0.0;
-    // cout << "ARGC number " << argc << endl;
-    // cout << argv[1] << endl;
-   // cout << "Command Line given directory " << endl;
     if(argc == 1){
         //Use default directory
 
@@ -46,8 +43,6 @@ int main( int argc, char *argv[], char *envp[]){
 
     }
     hFind = FindFirstFile(theDirectory.c_str(), &ffd);
-   // cout << "The first file " << ffd.cFileName << endl;
-   // cout << "I will use the " << theDirectory << " directory " << endl;
     if( hFind == INVALID_HANDLE_VALUE){
         return 0;
     }
@@ -70,9 +65,7 @@ int main( int argc, char *argv[], char *envp[]){
                 }else{
                     numDll = numDll +1.0;
                 }
-                //                cout << "Extension: " << ext << endl;
-                //                cout << "I am the file "<< fileName << endl;
-                //                cout << theDirectory << "/" << ffd.cFileName << endl;
+
                 //Find entropy
 
                 //   ifstream content(fileName.c_str(), ifstream::binary);
@@ -83,7 +76,7 @@ int main( int argc, char *argv[], char *envp[]){
                 char c;
                 if(content == NULL){
                     //perror("therror");
-                    //cout << "Piece of shit" << endl;
+                  
                     //cout << "fail " <<  content.fail() << endl;
                     //cout << content.rdstate() << endl;
                     //cout << "bad " << content.bad() << endl;
@@ -91,10 +84,9 @@ int main( int argc, char *argv[], char *envp[]){
                     return 0;
                 }
                 //               fileLen = content.tellg();
-                //                cout << "The content" << endl;
+                
                 while(content.get(c)){
-                    //   fileLen++;
-                    //cout << "am i effing here " << endl;
+                 
                     theChars[c] = theChars[c] + 1.0;
                     if(isprint(c)){
                         //cout << c << endl;
@@ -104,13 +96,10 @@ int main( int argc, char *argv[], char *envp[]){
 
                 fileLen = ffd.nFileSizeLow;
                 //Finish Calculations
-                //        cout << "FileLength " << fileLen << endl;
                 for( map<char,double>::iterator it=theChars.begin(); it!=theChars.end() ; ++it){
-                    //                    checkLen += it->second;
-                    //                    printf("Character: %c \n", it->first);
-                    // printf("Freq/filelen: %f", it->second);
-                    // printf(" /  %d \n" , fileLen);
+                    
                     //137160.00
+                    // freq/filelen
                     freq = (1.0*it->second) / double(fileLen);
                     // cout << setprecision(20) << freq << endl;
                     // printf("== Freq: %lf \n", freq);
@@ -156,12 +145,7 @@ int main( int argc, char *argv[], char *envp[]){
     int toTen = 0;
     double xAvg = avgExe / numExe;
     double dAvg = avgDll / numDll;
-   // printf("exe number: %lf \n", numExe);
-   // printf("dll number: %lf \n", numDll);
-   // printf("total exe: %lf \n", avgExe);
-   // printf("total dll: %lf \n", avgDll);
-   // printf("Final exe: %lf \n", xAvg);
-   // printf("final dll: %lf \n", dAvg);
+
     ofstream results("results.txt");
     if(results.is_open()){
         results << "Directory: " << theDirectory << "\n";
